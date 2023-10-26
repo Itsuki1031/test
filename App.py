@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, jsonify
 import json
+import MySQLdb
 
 app = Flask(__name__)
 
@@ -46,3 +47,9 @@ def dated_url_for(endpoint, **values):
             file_path = os.path.join(app.root_path,endpoint, filename)
             values['q'] = int(os.stat(file_path).st_mtime)
     return url_for(endpoint, **values)
+
+con = MySQLdb
+
+cur/execute(***
+CREATE TABLE sample.list
+())
