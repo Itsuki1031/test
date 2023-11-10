@@ -1,15 +1,5 @@
 from flask import Flask, render_template, request, jsonify
 import json
-import datetime
-import calendar
-
-dt_now = datetime.datetime.now()
-weekday = datetime.date.today().weekday()
-weekday_name = calendar.day_name[weekday]
-
-def ChangeMonth(month):
-    date = datetime.date(dt_now.year, month, dt_now.day)
-    return date.strftime("%B")
 
 app = Flask(__name__)
 
@@ -41,21 +31,6 @@ def show():
     }
     return jsonify(values=json.dumps(return_json))
 
-@app.route('/api/time')
-def jikan():
-    jikan = {
-        '1.year':dt_now.year,
-        '2.month':dt_now.month,
-        '3.month_name':ChangeMonth(dt_now.month),
-        '4.day':dt_now.day,
-        '5.weekday':weekday_name,
-        '6.hour':dt_now.hour,
-        '7.minute':dt_now.minute,
-        '8.second':dt_now.second,
-        '9.now':dt_now.isoformat()
-    }
-    return jsonify(jikan)
-
 if __name__ == '__main__':
 	app.debug = True
 	app.run(host='localhost') 
@@ -71,26 +46,3 @@ def dated_url_for(endpoint, **values):
             file_path = os.path.join(app.root_path,endpoint, filename)
             values['q'] = int(os.stat(file_path).st_mtime)
     return url_for(endpoint, **values)
-
-import MySQLdb
-
-con = MySQLdb.connect(
-    host = "localhost",
-    user = "root",
-    passwd = "1031hosei",
-    db = "user"
-)
-cur = con.cursor()
-
-cur.execute("""
-            CREATE TABLE user.list
-            (id MEDIUMINT NOT NULL AUTO_INCREMENT,
-            name VARCHAR(30),
-            password VARCHAR(30),
-            adress VARCHAR(100),
-            PRIMARY KEY(id))
-            """)
-
-con.commit()
-
-con.close()
