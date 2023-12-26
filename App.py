@@ -71,3 +71,26 @@ def dated_url_for(endpoint, **values):
             file_path = os.path.join(app.root_path,endpoint, filename)
             values['q'] = int(os.stat(file_path).st_mtime)
     return url_for(endpoint, **values)
+
+import MySQLdb
+
+con = MySQLdb.connect(
+    host = "localhost",
+    user = "root",
+    passwd = "1031hosei",
+    db = "user"
+)
+cur = con.cursor()
+
+cur.execute("""
+            CREATE TABLE user.list
+            (id MEDIUMINT NOT NULL AUTO_INCREMENT,
+            name VARCHAR(30),
+            password VARCHAR(30),
+            adress VARCHAR(100),
+            PRIMARY KEY(id))
+            """)
+
+con.commit()
+
+con.close()
