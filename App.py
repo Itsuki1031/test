@@ -1,5 +1,15 @@
 from flask import Flask, render_template, request, jsonify
 import json
+import datetime
+import calendar
+
+dt_now = datetime.datetime.now()
+weekday = datetime.date.today().weekday()
+weekday_name = calendar.day_name[weekday]
+
+def ChangeMonth(month):
+    date = datetime.date(dt_now.year, month, dt_now.day)
+    return date.strftime("%B")
 
 app = Flask(__name__)
 
@@ -30,6 +40,21 @@ def show():
         "message": f"{request.form['username']}"
     }
     return jsonify(values=json.dumps(return_json))
+
+@app.route('/api/time')
+def jikan():
+    jikan = {
+        '1.year':dt_now.year,
+        '2.month':dt_now.month,
+        '3.month_name':ChangeMonth(dt_now.month),
+        '4.day':dt_now.day,
+        '5.weekday':weekday_name,
+        '6.hour':dt_now.hour,
+        '7.minute':dt_now.minute,
+        '8.second':dt_now.second,
+        '9.now':dt_now.isoformat()
+    }
+    return jsonify(jikan)
 
 if __name__ == '__main__':
 	app.debug = True
