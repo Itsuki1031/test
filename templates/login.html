@@ -1,16 +1,9 @@
-<!doctype html>
-<html>
-  <head>
-   <meta charset="UTF-8">
-  </head>
-	<body>
-		<h1>{{title}}</h1>
-		<p>{{message}}</p>
-		<div>
-			<form method="get" action="/index1">
-				<input type="text" name="field">
-				<input type="submit">
-			</form>
-		</div>
-	</body>
-</html>
+<a href="make">新規作成</a><br>
+{{msg | safe}}
+<table align="center">
+	<form method="POST" action="login">
+		<tr><td align="right">メールアドレス</td><td><input type="email" name="email" required></td></tr>
+		<tr><td align="right">パスワード</td><td><input type="password" name="passwd" required></td></tr>
+		<tr><td align="right" colspan="2"><input type="submit" value="認証"></td></tr>
+	</form>
+</table>
