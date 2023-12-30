@@ -32,6 +32,7 @@ app.permanent_session_lifetime = timedelta(minutes=60)
 
 @app.route('/')
 def index():
+    session.clear()
     return render_template('index.html')
 
 @app.route('/login', methods=["GET", "POST"])
@@ -74,18 +75,30 @@ def home():
                                     name=html.escape(session["name"]),
                                     email=html.escape(session["email"]),
                                     tel=html.escape(session["tel"]),
-                                    admin="<a href=\"admin\">ユーザ情報一覧</a>")
+                                    admin="<a href=\"admin\">ユーザ情報一覧</a>",
+                                    open="<a href=\"home2\">入る</a>")
         else:
             return render_template("success.html",
                                     name=html.escape(session["name"]),
                                     email=html.escape(session["email"]),
-                                    tel=html.escape(session["tel"]))
+                                    tel=html.escape(session["tel"]),
+                                    open="<a href=\"home2\">入る</a>")
+    else:
+        return redirect("login")
+
+@app.route("/home2")
+def home2():
+    if "name" in session:
+        if session["admin"] == 1:
+            return render_template("open1.html")
+        else:
+            return render_template("open0.html")
     else:
         return redirect("login")
 
 @app.route("/make", methods=["GET", "POST"])
 def make():
-    if request.method == "GET": 
+    if request.method == "GET":
         return render_template("make.html")
     elif request.method == "POST":
         email = request.form["email"]
@@ -148,6 +161,14 @@ def index1():
 def form2():
     field1 = request.form['field1']
     return render_template('index1.html', message="温度 : %s 度" %field1)
+
+@app.route('/open0')
+def open0():
+    return render_template('open0.html')
+
+@app.route('/open1')
+def open1():
+    return render_template('open1.html')
 
 @app.route('/show', methods=['POST'])
 def show():

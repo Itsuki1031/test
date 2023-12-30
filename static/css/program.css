@@ -8,6 +8,11 @@ test {
     padding: 18px 53px;
     background-image: Url(../img/back1.jpg);
 }
+test2 {
+    position: relative;
+    padding: 18px 53px;
+    background-image: Url(../img/momiji.png);
+}
 .title
 {
     text-align: center;
