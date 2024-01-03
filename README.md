@@ -13,7 +13,6 @@ user {
 
 shop {
     int shop_id PK
-    int user_id FK
     char shop_name
     char shop_adress
 }
