@@ -20,14 +20,17 @@
 		</ul1>
 	</nav>
 	<div class="write">
-		<span class="hello"><b>ようこそ温度管理アプリへ</b></span>
-		<p>このアプリは任意の場所の温度を管理することが出来ます。使ってみよう!</p>
+		<span class="hello"><b>店名を選んでください！</b></span>
 	</div>
+	<br>
 	<test>
-			<a href=\home3><span class="font1">データの閲覧</span></a>
+			<a href="{{ url_for('login') }}" class="a"><span class="font1">愛甲店</span></a>
 	</test>
 	<test2>
-		<a href=\home4><span class="font1">データの入力</span></a>
+		<a href="{{ url_for('login') }}" class="a"><span class="font1">竹山店</span></a>
 	</test2>
+	<test3>
+		<a href="{{ url_for('login') }}" class="a"><span class="font1">片倉店</span></a>
+	</test3>
 </body>
 </html>

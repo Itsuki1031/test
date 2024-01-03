@@ -6,12 +6,17 @@ header {
 test {
     position: relative;
     padding: 18px 53px;
-    background-image: Url(../img/back1.jpg);
+    background-image: Url(../img/momiji.png);
 }
 test2 {
     position: relative;
     padding: 18px 53px;
-    background-image: Url(../img/momiji.png);
+    background-image: Url(../img/wagara.png);
+}
+test3 {
+    position: relative;
+    padding: 18px 53px;
+    background-image: Url(../img/back1.jpg);
 }
 .title
 {

@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify, session, redirect
+from flask import Flask, render_template, request, jsonify, session, redirect, url_for
 import json
 import datetime
 import calendar
@@ -95,6 +95,37 @@ def home2():
             return render_template("open0.html")
     else:
         return redirect("login")
+    
+#@app.route("/home3")
+#def home3():
+#    if "name" in session:
+#        con = connect()
+#        cur = con.cursor()
+#        cur.execute("""
+#                    SELECT shop_name
+#                    FROM shop
+#                    """)
+#        data=[]
+#        for row in cur:
+#               data.append(row[0])
+#
+#        return render_template("select.html", data = data)
+#    else:
+#        return redirect("login")
+
+@app.route("/home3")
+def home3():
+    if "name" in session:
+        return render_template("select.html")
+    else:
+        return redirect("login")
+    
+@app.route("/home4")
+def home4():
+    if "name" in session:
+        return render_template("select_input.html")
+    else:
+        return redirect("login")
 
 @app.route("/make", methods=["GET", "POST"])
 def make():
@@ -124,11 +155,62 @@ def make():
                     INSERT INTO user.data
                     (email,passwd,tel,name)
                     VALUES (%(email)s,%(hashpass)s,%(tel)s,%(name)s)
-                    """,{"email":email, "hashpass":hashpass, "tel":tel, "name":name})
+                    """,{"email":email, "hashpass":hashpass, "tel":tel, "name":name}
+                    )
         con.commit()
         con.close()
         return render_template("info.html", email=email, passwd=passwd, name=name, tel=tel)
+
+@app.route("/input", methods=["GET", "POST"])
+def input():
+    if "name" in session:
+        if request.method == "GET":
+            return render_template("input.html")
+        elif request.method == "POST":
+            shop_id = request.form["shop_id"]
+            shelf_id = request.form["shelf_id"]
+            reference_temperature = request.form["reference_temperature"]
+            temperature = request.form["temperature"]
+            temperature_at = request.form["temperature_at"]
+            con = connect()
+            cur =con.cursor()
+            cur.execute("""
+                        INSERT INTO user.temperature
+                        (shelf_id,shop_id,reference_temperature,temperature,temperature_at)
+                        VALUES (%(shelf_id)s,%(shop_id)s,%(reference_temperature)s,%(temperature)s,%(temperature_at)s)
+                        """,{"shelf_id":shelf_id,"shop_id":shop_id, "reference_temperature":reference_temperature, "temperature":temperature, "temperature_at":temperature_at}
+                        )
+            con.commit()
+            con.close()
+            return render_template("shelf_info.html", shelf_id=shelf_id, shop_id=shop_id, reference_temperature=reference_temperature, temperature=temperature, temperature_at=temperature_at)
+    else:
+        return redirect("login")
     
+@app.route("/input_item", methods=["GET", "POST"])
+def input_item():
+    if "name" in session:
+        if request.method == "GET":
+            return render_template("input_item.html")
+        elif request.method == "POST":
+            shop_id = request.form["shop_id"]
+            shelf_id = request.form["shelf_id"]
+            item_name = request.form["item_name"]
+            sales_co = request.form["sales_co"]
+            price = request.form["price"]
+            con = connect()
+            cur =con.cursor()
+            cur.execute("""
+                        INSERT INTO user.item
+                        (shelf_id,shop_id,item_name,sales_co,price)
+                        VALUES (%(shelf_id)s,%(shop_id)s,%(item_name)s,%(sales_co)s,%(price)s)
+                        """,{"shelf_id":shelf_id,"shop_id":shop_id, "item_name":item_name, "sales_co":sales_co, "price":price}
+                        )
+            con.commit()
+            con.close()
+            return render_template("item_info.html", shelf_id=shelf_id, shop_id=shop_id, item_name=item_name, sales_co=sales_co, price=price)
+    else:
+        return redirect("login")
+
 @app.route("/admin")
 def admin():
     if "admin" in session:
@@ -170,6 +252,14 @@ def open0():
 def open1():
     return render_template('open1.html')
 
+@app.route('/select')
+def select():
+    return render_template('select.html')
+
+@app.route('/select_input')
+def select_input():
+    return render_template('select_input.html')
+
 @app.route('/show', methods=['POST'])
 def show():
     return_json = {
@@ -208,23 +298,63 @@ def dated_url_for(endpoint, **values):
             values['q'] = int(os.stat(file_path).st_mtime)
     return url_for(endpoint, **values)
 
-con = MySQLdb.connect(
-    host = "localhost",
-    user = "root",
-    passwd = "1031hosei",
-    db = "user"
-)
+#con = MySQLdb.connect(
+#    host = "localhost",
+#    user = "root",
+#    passwd = "1031hosei",
+#    db = "user"
+#)
+
+con = connect()
+
 cur = con.cursor()
 
-cur.execute("""
-            CREATE TABLE user.data
-            (id MEDIUMINT NOT NULL AUTO_INCREMENT,
-            email VARCHAR(100),
-            passwd VARCHAR(200),
-            name VARCHAR(30),
-            tel VARCHAR(30),
-            PRIMARY KEY(id))
-            """)
+#cur.execute("""
+#            CREATE TABLE user.data
+#            (id MEDIUMINT NOT NULL AUTO_INCREMENT,
+#            email VARCHAR(100),
+#            passwd VARCHAR(200),
+#            name VARCHAR(30),
+#            tel VARCHAR(30),
+#            PRIMARY KEY(id))
+#            """)
+
+#cur.execute("""
+#            CREATE TABLE user.shop
+#            (shop_id MEDIUMINT NOT NULL AUTO_INCREMENT,
+#            id MEDIUMINT NOT NULL,
+#            shop_name VARCHAR(30),
+#            shop_adress VARCHAR(200),
+#            PRIMARY KEY(shop_id),
+#            FOREIGN KEY(id) REFERENCES user.data(id))
+#            """)
+
+#cur.execute("""
+#            DROP TABLE user.temperature
+#            """)
+
+#cur.execute("""
+#            INSERT INTO user.shelf
+#            (shelf_id)
+#            VALUES(9)           
+#            """)
+
+#cur.execute("""
+#            CREATE TABLE user.temperature
+#            (temperature_id MEDIUMINT NOT NULL AUTO_INCREMENT,
+#            shop_id MEDIUMINT NOT NULL,
+#            shelf_id INTEGER NOT NULL,
+#            reference_temperature INTEGER,
+#            temperature INTEGER,
+#            temperature_at DATETIME,
+#            PRIMARY KEY(temperature_id),
+#            FOREIGN KEY(shelf_id) REFERENCES user.shelf(shelf_id),
+#            FOREIGN KEY(shop_id) REFERENCES user.shop(shop_id))
+#            """)
+
+#cur.execute("""
+#            ALTER TABLE user.temperature auto_increment = 1;
+#            """)
 
 con.commit()
 
