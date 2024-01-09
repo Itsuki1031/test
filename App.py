@@ -288,9 +288,8 @@ def select():
                     return render_template("result2.html", msg="<br><br>検索した商品は存在しません")
                 else:
                     return render_template("result2.html", 
-                                            msg2="<b>検索していただいた商品名のSHOP_ID, SHELF_idは下記のようになっています",
+                                            msg2="<br><br><b>検索していただいた商品名のSHOP_ID, SHELF_idは下記のようになっています",
                                             msg3="こちらをご確認いただき先ほどのページにて店名か棚の番号で検索してください<b><br>",
-                                            msg4="<a href=\"select\">戻る</a>",
                                             table = "<table border=\"1\" align=\"center\" class=\"design10\">",
                                             arti = "SHOP_id",
                                             arti2 = "SHELF_id",
