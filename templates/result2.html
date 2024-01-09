@@ -20,29 +20,27 @@
 			</ul1>
 		</header>
 		<div class="mar">
-			<subtitle3><span class="midasi">入力情報</span></subtitle3>
-			<table border="1" align="center" class="design10">
-				<tr>
-					<td align="right">メールアドレス</td>
-					<td>{{ email|safe }}</td>
-				</tr>
-				<tr>
-					<td align="right">名前</td>
-					<td>{{ name|safe }}</td>
-				</tr>
-				<tr>
-					<td align="right">電話番号</td>
-					<td>{{ tel|safe }}</td>
-				</tr>
-				<tr>
-					<td align="right">平文パスワード</td>
-					<td>{{ passwd|safe }}</td>
-				</tr>
-			</table>
-
+			<subtitle3><span class="midasi">検索結果</span></subtitle3>
+			{{ msg|safe }}
+			{{ msg2|safe }}
+			{{ msg3|safe }}
+			<a class="a">{{ msg4|safe }}</a>
+			{{ table|safe }}
+			<tr>
+				<td align="left">{{ arti|safe }}</td>
+				<td align="left">{{ arti2|safe }}</td>
+				<td align="left">{{ arti3|safe }}</td>
+			</tr>
+			{% for d in data %}
+			<tr>
+				{% for c in d %}
+				<td align="left">{{ c|safe }}</td>
+				{% endfor %}
+			</tr>
+			{% endfor %}
 			</table>
 			<div class="loc2">
-				<a href="login">ログイン画面へ</a>
+				<a href="{{ msg3|safe }}">戻る</a>
 			</div>
 		</div>
 	</div>

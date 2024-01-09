@@ -25,9 +25,10 @@
 		<nav class="main_contents2">
 			<div class="mar">
 				<subtitle3><span class="midasi">キーワードから検索</span></subtitle3>
-				<br><br><b>店の番号で検索</b><br>
+				<br><br>
+				<b>店の番号で検索</b><br>
 				<table align="left">
-					<form method="POST" action="select">
+					<form method="POST" action="select2">
 						<tr>
 							<td align="left">店の番号</td>
 						</tr>
@@ -42,7 +43,7 @@
 				<br><br><br><br>
 				<b>棚の番号で検索</b><br>
 				<table align="left">
-					<form method="POST" action="select">
+					<form method="POST" action="select2">
 						<tr>
 							<td align="left">棚の番号</td>
 						</tr>
@@ -55,14 +56,14 @@
 					</form>
 				</table>
 				<br><br><br><br>
-				<b>日時で検索</b><br>
+				<b>商品名で検索</b><br>
 				<table align="left">
-					<form method="POST" action="select">
+					<form method="POST" action="select2">
 						<tr>
-							<td align="left">日付<br>※記入例:2024-01-01</td>
+							<td align="left">商品名</td>
 						</tr>
 						<tr>
-							<td><input type="tem_date" name="tem_date" required></td>
+							<td><input type="item" name="item" required></td>
 						</tr>
 						<tr>
 							<td align="right" colspan="2"><input type="submit" value="検索"></td>
@@ -70,14 +71,14 @@
 					</form>
 				</table>
 				<br><br><br><br><br>
-				<br><br><b>商品名で検索</b><br>
+				<b>販売会社名で検索</b><br>
 				<table align="left">
-					<form method="POST" action="select">
+					<form method="POST" action="select2">
 						<tr>
-							<td align="left">商品名</td>
+							<td align="left">販売会社名</td>
 						</tr>
 						<tr>
-							<td><input type="item" name="item" required></td>
+							<td><input type="sales_co" name="sales_co" required></td>
 						</tr>
 						<tr>
 							<td align="right" colspan="2"><input type="submit" value="検索"></td>
@@ -91,7 +92,7 @@
 				<subtitle3><span class="midasi">まとめて検索</span></subtitle3>
 				<br><br><b>パターン1</b><br>
 				<table align="left">
-					<form method="POST" action="select">
+					<form method="POST" action="select2">
 						<tr>
 							<td align="left">店の番号</td>
 							<td><input type="shop_id" name="shop_id" required></td>
@@ -101,18 +102,39 @@
 							<td><input type="shelf_id" name="shelf_id" required></td>
 						</tr>
 						<tr>
-							<td align="left">日時</td>
-							<td><input type="tem_date" name="tem_date" required></td>
+							<td align="right">商品名</td>
+							<td><input type="item_name" name="item_name" required></td>
 						</tr>
 						<tr>
 							<td align="right" colspan="2"><input type="submit" value="検索"></td>
 						</tr>
 					</form>
 				</table>
-				<br><br><br><br>
-				<br><br><b>パターン2</b><br>
+				<br><br><br><br><br>
+				<b>パターン2</b><br>
 				<table align="left">
-					<form method="POST" action="select">
+					<form method="POST" action="select2">
+						<tr>
+							<td align="left">店の番号</td>
+							<td><input type="shop_id" name="shop_id" required></td>
+						</tr>
+						<tr>
+							<td align="left">棚の番号</td>
+							<td><input type="shelf_id" name="shelf_id" required></td>
+						</tr>
+						<tr>
+							<td align="left">販売会社</td>
+							<td><input type="item_name" name="sales_co" required></td>
+						</tr>
+						<tr>
+							<td align="right" colspan="2"><input type="submit" value="検索"></td>
+						</tr>
+					</form>
+				</table>
+				<br><br><br><br><br>
+				<b>パターン3</b><br>
+				<table align="left">
+					<form method="POST" action="select2">
 						<tr>
 							<td align="left">店の番号</td>
 							<td><input type="shop_id" name="shop_id" required></td>
@@ -126,17 +148,34 @@
 						</tr>
 					</form>
 				</table>
-				<br><br><br><br>
-				<br><br><b>パターン3</b><br>
+				<br><br><br><br><br>
+				<b>パターン4</b><br>
 				<table align="left">
-					<form method="POST" action="select">
+					<form method="POST" action="select2">
 						<tr>
 							<td align="left">店の番号</td>
 							<td><input type="shop_id" name="shop_id" required></td>
 						</tr>
 						<tr>
-							<td align="left">日時</td>
-							<td><input type="tem_date" name="tem_date" required></td>
+							<td align="right">商品名</td>
+							<td><input type="item_name" name="item_name" required></td>
+						</tr>
+						<tr>
+							<td align="right" colspan="2"><input type="submit" value="検索"></td>
+						</tr>
+					</form>
+				</table>
+				<br><br><br><br><br>
+				<b>パターン5</b><br>
+				<table align="left">
+					<form method="POST" action="select2">
+						<tr>
+							<td align="left">店の番号</td>
+							<td><input type="shop_id" name="shop_id" required></td>
+						</tr>
+						<tr>
+							<td align="left">販売会社</td>
+							<td><input type="sales_co" name="sales_co" required></td>
 						</tr>
 						<tr>
 							<td align="right" colspan="2"><input type="submit" value="検索"></td>
@@ -148,15 +187,16 @@
 		<div id="sub2">
 			<div class="mar">
 				<subtitle3><span class="midasi">一覧</span></subtitle3>
-				<br><br><a href="home5">店テーブル</a><br>
-				<a href="home6">温度テーブル</a><br>
+				<br><br>
+				<a href="home8">店テーブル</a><br>
+				<a href="home7">商品テーブル</a><br>
 				<subtitle5><span class="midasi">ユーザ</span></subtitle5>
-				<br><br><br><a href="{{ url_for('home') }}">アカウント情報</a><br>
+				<br><br><br>
+				<a href="{{ url_for('home') }}">アカウント情報</a><br>
 				<a href="home2">ホーム画面へ</a><br>
 				<a href="home3">戻る</a>
 			</div>
 		</div>
 	</div>
 </body>
-
 </html>

@@ -1,9 +1,55 @@
-<a href="home2">ホーム画面へ</a><br>
-<a href="input">温度情報入力へ</a><br>
-<table align="center" cellspacing="0">
-	<tr><td align="right">SHELF_ID</td><td>{{ shelf_id|safe }}</td></tr>
-	<tr><td align="right">SHOP_ID</td><td>{{ shop_id|safe }}</td></tr>
-	<tr><td align="right">商品名</td><td>{{ item_name|safe }}</td></tr>
-	<tr><td align="right">販売会社</td><td>{{ sales_co|safe }}</td></tr>
-	<tr><td align="right">値段</td><td>{{ price|safe }}</td></tr>
-</table>
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/program.css') }}">
+	<title>商品管理アプリ</title>
+</head>
+
+<body>
+	<div id="container">
+		<header>
+			<h1>
+				<div class="title"><span class="font">商品管理アプリ</span></div>
+			</h1>
+			<ul1>
+				<div class="page">
+					<div class="logout"><a href="{{ url_for('index') }}" class="a"><span class="font2">ログアウト</a></div>
+				</div>
+			</ul1>
+		</header>
+		<div class="mar">
+			<subtitle3><span class="midasi">入力情報</span></subtitle3>
+			<table border="1" align="center" class="design10">
+				<tr>
+					<td align="left">SHOP_ID</td>
+					<td>{{ shop_id|safe }}</td>
+				</tr>
+				<tr>
+					<td align="left">SHELF_ID</td>
+					<td>{{ shelf_id|safe }}</td>
+				</tr>
+				<tr>
+					<td align="left">商品名</td>
+					<td>{{ item_name|safe }}</td>
+				</tr>
+				<tr>
+					<td align="left">販売会社</td>
+					<td>{{ sales_co|safe }}</td>
+				</tr>
+				<tr>
+					<td align="left">値段</td>
+					<td>{{ price|safe }}</td>
+				</tr>
+			</table>
+			<div class="loc2">
+				<a href="home2">ホーム画面へ</a><br>
+				<a href="input">温度情報入力へ</a><br>
+				<a href="input_item">商品情報入力へ</a><br>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
