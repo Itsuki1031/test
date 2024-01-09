@@ -1,14 +1,16 @@
 ## 温度管理アプリ
-このアプリは商品棚の**温度**を管理します。
+このアプリは**商品**を管理します。
 
 ## ER図
 ```mermaid
 erDiagram
-user {
+data {
     int user_id PK
-    char name
+    char email
     char password
-    char address
+    char name
+    char tel
+    int admin
 }
 
 shop {
@@ -19,30 +21,38 @@ shop {
 
 shelf {
     int shelf_id PK
+}
+
+temperature {
+    int temperature_id PK
     int shop_id FK
+    int shelf_id FK
     int reference_temperature
     int temperature
-    date temperature_at
+    date tem_date
+    time tem_time
 }
 
 item {
     int item_id PK
+    int shop_id FK
     int shelf_id FK
     char item_name
+    char sales_co
     int price
-    int stock
-    date expiration_date
 }
 
-user ||--o{ shop : ""
+data ||--o{ shop : ""
 shop |o--o{ shelf : ""
+shelf |o--o{ temperature : ""
 shelf |o--o{ item : ""
 ```
 
 ## テーブルについて
-user : ユーザの個人情報<br>
+data : ユーザの個人情報<br>
 shop : 店舗情報<br>
-shelf : 商品棚の温度情報<br>
+shelf : 商品棚の番号情報<br>
+temperature : 商品棚の温度情報<br>
 item : 商品棚に置いてある商品についての情報
 
 ## API仕様書
@@ -72,5 +82,3 @@ hour : 現在の時間(時)<br>
 minute : 現在の時間(分)<br>
 second : 現在の時間(秒)<br>
 now : 現在の時間(年、月、日、時間、分、秒、マイクロ秒)<br>
-item : 商品棚に置いてある商品についての情報
-
