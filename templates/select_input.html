@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/program.css') }}">
+	<title>商品管理アプリ</title>
+</head>
+
+<body>
+	<div id="container">
+		<header>
+			<h1>
+				<div class="title"><span class="font">商品管理アプリ</span></div>
+			</h1>
+			<nav id="top_nav">
+				<ul1>
+					<div class="page">
+						<div class="logout"><a href="{{ url_for('index') }}" class="a"><span class="font2">ログアウト</a>
+						</div>
+					</div>
+				</ul1>
+			</nav>
+		</header>
+		<nav class="main_contents">
+			<div class="mar">
+				<subtitle3><span class="midasi">{{ mi|safe }}</span></subtitle3>
+				<div class="write">
+					<span class="hello"><br><b>入力したい情報を選んでください</b></span>
+				</div>
+				<br>
+				<test>
+					<a href="{{ url|safe }}" class="a"><span class="font1">{{ tem|safe }}</span></a>
+				</test>
+				<br>
+				<test4>
+					<a href="{{ url2|safe }}" class="a"><span class="font1">{{ item|safe }}</span></a>
+				</test4>
+			</div>
+		</nav>
+		<div id="sub">
+			<div class="mar">
+				<subtitle4><span class="midasi2">こんにちは{{ name|safe }}さん</span></subtitle4><br>
+				<div class="loc1">
+					<a href="{{ url_for('home') }}">アカウント情報</a><br>
+					<a>{{ admin|safe }}</a>{{ br|safe }}
+					<a href="{{ url_for('home2') }}">戻る</a><br>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

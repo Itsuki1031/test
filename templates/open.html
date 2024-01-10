@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/program.css') }}">
+	<title>商品管理アプリ</title>
+</head>
+
+<body>
+	<div id="container">
+		<header>
+			<h1>
+				<div class="title"><span class="font">商品管理アプリ</span></div>
+			</h1>
+			<ul1>
+				<div class="page">
+					<div class="logout"><a href="{{ url_for('index') }}" class="a"><span class="font2">ログアウト</a></div>
+				</div>
+			</ul1>
+		</header>
+		<nav class="main_contents">
+			<div class="mar">
+				<div class="write">
+					<subtitle4><span class="midasi">ようこそ商品管理アプリへ</span></subtitle4>
+					<p><b>このアプリは商品を管理することが出来ます。使ってみよう!</b></p>
+				</div>
+				<test>
+					<a href=\home3 class="a"><span class="font1">データの閲覧</span></a>
+				</test>
+				{{ test2|safe }}
+				<a href=\home4 class="a"><span class="font1">{{ input|safe }}</span></a>
+				</test2>
+			</div>
+		</nav>
+
+		<div id="sub">
+			<div class="mar">
+				<subtitle4><span class="midasi2">こんにちは{{ name|safe }}さん</span></subtitle4><br>
+				<div class="loc1">
+					<a href="{{ url_for('home') }}">アカウント情報</a><br>
+					<a>{{ admin|safe }}</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

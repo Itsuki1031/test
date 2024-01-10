@@ -1,9 +1,47 @@
-<a href="make">新規作成</a><br>
-{{msg | safe}}
-<table align="center">
-	<form method="POST" action="login">
-		<tr><td align="right">メールアドレス</td><td><input type="email" name="email" required></td></tr>
-		<tr><td align="right">パスワード</td><td><input type="password" name="passwd" required></td></tr>
-		<tr><td align="right" colspan="2"><input type="submit" value="認証"></td></tr>
-	</form>
-</table>
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/program.css') }}">
+	<title>商品管理アプリ</title>
+</head>
+
+<body>
+	<div id="container">
+		<header>
+			<h1>
+				<div class="title2"><span class="font">商品管理アプリ</span></div>
+			</h1>
+		</header>
+		<nav class="main_contents">
+			<div class="mar">
+				<subtitle1><span class="midasi">ログイン</span></subtitle1>
+				<table align="left" class="loc">
+					<form method="POST" action="login">
+						<tr>
+							<td align="left">メールアドレス</td>
+							<td><input type="email" name="email" required></td>
+						</tr>
+						<tr>
+							<td align="left">パスワード</td>
+							<td><input type="password" name="passwd" required></td>
+						</tr>
+						<tr>
+							<td align="right" colspan="2"><input type="submit" value="認証"></td>
+						</tr>
+					</form>
+				</table>
+				<br><br><br><br><br>
+				{{br | safe}}
+				{{msg | safe}}
+			</div>
+		</nav>
+		<div id="sub">
+			<div class="mar">
+				<a href="make">新規作成</a><br>
+				<a href="/">戻る</a>
+			</div>
+		</div>
+	</div>
+</body>

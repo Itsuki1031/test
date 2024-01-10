@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/program.css') }}">
+	<title>商品管理アプリ</title>
+</head>
+
+<body>
+	<div id="container">
+		<header>
+			<h1>
+				<div class="title2"><span class="font">商品管理アプリ</span></div>
+			</h1>
+		</header>
+		<nav class="main_contents">
+			<div class="mar">
+				<subtitle2><span class="midasi">商品情報入力</span></subtitle2>
+				<table align="left" class="loc">
+					<form method="POST" action="input_item">
+						<tr>
+							<td align="left">SHOP_ID</td>
+							<td><input type="shop_id" name="shop_id" required></td>
+						</tr>
+						<tr>
+							<td align="left">SHELF_ID</td>
+							<td><input type="shelf_id" name="shelf_id" required></td>
+						</tr>
+						<tr>
+							<td align="left">商品名</td>
+							<td><input type="item_name" name="item_name" required></td>
+						</tr>
+						<tr>
+							<td align="left">販売会社</td>
+							<td><input type="sales_co" name="sales_co" required></td>
+						</tr>
+						<tr>
+							<td align="left">値段</td>
+							<td><input type="price" name="price" required></td>
+						</tr>
+						<tr>
+							<td colspan="2" align="right"><input type="submit" value="作成"></td>
+						</tr>
+					</form>
+				</table>
+			</div>
+		</nav>
+		<div id="sub">
+			<div class="mar">
+				<subtitle4><span class="midasi2">こんにちは{{ name|safe }}さん</span></subtitle4><br>
+				<div class="loc1">
+					<a href="{{ url_for('home') }}">アカウント情報</a><br>
+					<a>{{ admin|safe }}</a>{{ br|safe }}
+					<a href="home2">ホーム画面へ</a><br>
+					<a href="home4">戻る</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>

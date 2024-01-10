@@ -23,26 +23,34 @@
 			<subtitle3><span class="midasi">入力情報</span></subtitle3>
 			<table border="1" align="center" class="design10">
 				<tr>
-					<td align="center">メールアドレス</td>
-					<td>{{ email|safe }}</td>
+					<td align="center">SHOP_ID</td>
+					<td>{{ shop_id|safe }}</td>
 				</tr>
 				<tr>
-					<td align="center">名前</td>
-					<td>{{ name|safe }}</td>
+					<td align="center">SHELF_ID</td>
+					<td>{{ shelf_id|safe }}</td>
 				</tr>
 				<tr>
-					<td align="center">電話番号</td>
-					<td>{{ tel|safe }}</td>
+					<td align="center">基準温度</td>
+					<td>{{ reference_temperature|safe }}</td>
 				</tr>
 				<tr>
-					<td align="center">平文パスワード</td>
-					<td>{{ passwd|safe }}</td>
+					<td align="center">温度</td>
+					<td>{{ temperature|safe }}</td>
 				</tr>
-			</table>
-
+				<tr>
+					<td align="center">計測日時</td>
+					<td>{{ tem_date|safe }}</td>
+				</tr>
+				<tr>
+					<td align="center">計測時間</td>
+					<td>{{ tem_time|safe }}</td>
+				</tr>
 			</table>
 			<div class="loc2">
-				<a href="login">ログイン画面へ</a>
+				<a href="home2">ホーム画面へ</a><br>
+				<a href="input">温度情報入力へ</a><br>
+				<a href="input_item">商品情報入力へ</a><br>
 			</div>
 		</div>
 	</div>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/program.css') }}">
+	<title>商品管理アプリ</title>
+</head>
+
+<body>
+	<div id="container">
+		<header>
+			<h1>
+				<div class="title2"><span class="font">商品管理アプリ</span></div>
+			</h1>
+		</header>
+		<nav class="main_contents">
+			<div class="mar">
+				<subtitle2><span class="midasi">温度情報入力</span></subtitle2>
+				<table align="left" class="loc">
+					<form method="POST" action="input">
+						<tr>
+							<td align="left">SHOP_ID</td>
+							<td><input type="shop_id" name="shop_id" required></td>
+						</tr>
+						<tr>
+							<td align="left">SHELF_ID</td>
+							<td><input type="shelf_id" name="shelf_id" required></td>
+						</tr>
+						<tr>
+							<td align="left">基準温度</td>
+							<td><input type="reference_temperature" name="reference_temperature" required></td>
+						</tr>
+						<tr>
+							<td align="left">温度</td>
+							<td><input type="temperature" name="temperature" required></td>
+						</tr>
+						<tr>
+							<td align="left">計測日時</td>
+							<td><input type="tem_date" name="tem_date" required></td>
+						</tr>
+						<tr>
+							<td align="left">計測時間</td>
+							<td><input type="tem_time" name="tem_time" required></td>
+						</tr>
+						<tr>
+							<td colspan="2" align="right"><input type="submit" value="作成"></td>
+						</tr>
+					</form>
+				</table>
+			</div>
+		</nav>
+		<div id="sub">
+			<div class="mar">
+				<subtitle4><span class="midasi2">こんにちは{{ name|safe }}さん</span></subtitle4><br>
+				<div class="loc1">
+					<a href="{{ url_for('home') }}">アカウント情報</a><br>
+					<a>{{ admin|safe }}</a>{{ br|safe }}
+					<a href="home2">ホーム画面へ</a><br>
+					<a href="home4">戻る</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>

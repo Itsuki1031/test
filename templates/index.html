@@ -1,23 +1,29 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta charset="UTF-8">
-	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/program.css') }}">
-	<title>温度管理アプリ</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/program.css') }}">
+	<title>商品管理アプリ</title>
 </head>
 
 <body>
-	<header>
-		<h1>
-			<div class="title"><span class="font">温度管理アプリ</span></div>
-		</h1>
-	</header>
-	<div class="write">
-		<span class="hello"><b>ようこそ温度管理アプリへ</b></span>
-		<p>このアプリは任意の場所の温度を管理することが出来ます。使ってみよう!</p>
-	</div>
-	<test>
+	<div id="container">
+		<header>
+			<h1>
+				<div class="title2"><span class="font">商品管理アプリ</span></div>
+			</h1>
+		</header>
+		<div class="write">
+			<div class="mar">
+				<subtitle4><span class="midasi">ようこそ商品管理アプリへ</span></subtitle4>
+				<p><b>このアプリは商品を管理することが出来ます。使ってみよう!</b></p>
+			</div>
+		</div>
+		<test>
 			<a href="{{ url_for('login') }}" class="a"><span class="font1">アプリを使用</span></a>
-	</test>
+		</test>
+	</div>
 </body>
+
 </html>

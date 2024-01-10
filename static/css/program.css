@@ -1,31 +1,74 @@
+#container {
+    margin: auto;
+    width: 1100px;
+}
+
 header {
     margin-bottom: 5px;
     background-image: url(../img/back.jpg);
     font-family: cursive;
+    height: 175px;
 }
+
 test {
-    position: relative;
-    padding: 18px 53px;
-    background-image: Url(../img/back1.jpg);
-}
-test2 {
     position: relative;
     padding: 18px 53px;
     background-image: Url(../img/momiji.png);
 }
-.title
-{
+
+test2 {
+    position: relative;
+    padding: 18px 53px;
+    left: 20px;
+    background-image: Url(../img/wagara.png);
+}
+
+test3 {
+    position: relative;
+    padding: 18px 53px;
+    ;
+    background-image: Url(../img/back1.jpg);
+}
+
+test4 {
+    position: relative;
+    top: 30px;
+    padding: 18px 53px;
+    background-image: Url(../img/wagara.png);
+}
+
+test5 {
+    position: relative;
+    padding: 18px 53px;
+    background-image: Url(../img/wagara.png);
+}
+
+write4 {
+    top: 100px;
+}
+
+.title {
+    text-align: center;
+    height: 113px;
+}
+
+.title2 {
     text-align: center;
     height: 250px;
 }
-.font
-{
+
+.page {
+    overflow: hidden;
+}
+
+.font {
     font-size: 100px;
     font-weight: bold;
     font-family: "HGP行書体", "ＭＳ Ｐ明朝", "MS PMincho", serif;
     color: #000000;
-    vertical-align: -125px;
+    vertical-align: -90px;
 }
+
 .font1 {
     font-size: 50px;
     font-weight: bold;
@@ -33,20 +76,30 @@ test2 {
     color: #000000;
     vertical-align: -12px;
 }
-.font2
-{
+
+.font2 {
     font-size: 20px;
     font-weight: bold;
     color: #000000;
 }
-a{
+
+a {
     text-decoration: none;
 }
+
+a:hover {
+    text-decoration: underline;
+}
+
+a.a {
+    text-decoration: none;
+}
+
 .logout {
     float: right;
     display: flex;
     justify-content: center;
-	align-items: center;
+    align-items: center;
     height: 40px;
     width: 100px;
     text-align: center;
@@ -54,4 +107,148 @@ a{
     background-repeat: no-repeat;
     background-position: bottom;
     font-family: "HGP行書体", "ＭＳ Ｐ明朝", "MS PMincho", serif;
+}
+
+.main_contents {
+    background-color: #ffda0066;
+    width: 845px;
+    height: 300px;
+    float: left;
+}
+
+#sub {
+    margin-left: 5px;
+    background-color: #00ccbe52;
+    width: 250px;
+    height: 300px;
+    float: left
+}
+
+.mar {
+    margin: 20px;
+}
+
+.main_contents2 {
+    background-color: #ffda0066;
+    width: 420px;
+    height: 775px;
+    float: left;
+}
+
+#sub1 {
+    margin-left: 5px;
+    background-color: #ff33666e;
+    width: 420px;
+    height: 775px;
+    float: left
+}
+
+#sub2 {
+    margin-left: 5px;
+    background-color: #00ccbe52;
+    width: 250px;
+    height: 775px;
+    float: left
+}
+
+.mar {
+    margin: 20px;
+}
+
+.midasi {
+    text-align: left;
+    font-size: 25px;
+    font-weight: bold;
+    font-family: "HGP行書体", "ＭＳ Ｐ明朝", "MS PMincho", serif;
+    color: #000000;
+    vertical-align: -5px;
+}
+
+.midasi2 {
+    text-align: left;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: "HGP行書体", "ＭＳ Ｐ明朝", "MS PMincho", serif;
+    color: #000000;
+    vertical-align: -5px;
+}
+
+subtitle1 {
+    position: relative;
+    padding: 8px 20px;
+    right: 295px;
+    border-left: 5px solid #ff0090;
+}
+
+subtitle2 {
+    position: relative;
+    padding: 8px 20px;
+    right: 260px;
+    border-left: 5px solid #ff0090;
+}
+
+subtitle3 {
+    position: relative;
+    padding: 8px 20px;
+    left: 3px;
+    border-left: 5px solid #ff0090;
+}
+
+subtitle4 {
+    position: relative;
+}
+
+subtitle4:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 25px;
+    width: 100%;
+    height: 7px;
+    background: -webkit-repeating-linear-gradient(-45deg, #6ad1c8, #6ad1c8 2px, #fff 2px, #fff 4px);
+    background: repeating-linear-gradient(-45deg, #ff3366, #ff0090 2px, #ff00f34a 2px, #fff 4px);
+}
+
+.loc {
+    position: relative;
+    top: 45px;
+}
+
+.loc1 {
+    position: relative;
+    top: 20px;
+}
+
+subtitle5 {
+    position: relative;
+    padding: 8px 20px;
+    left: 3px;
+    top: 25px;
+    border-left: 5px solid #ff0090;
+}
+
+.design10 {
+    position: relative;
+    width: 100%;
+    top:40px;
+    text-align: center;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.design10 th {
+    padding: 10px;
+    border-bottom: solid 4px #778ca3;
+    color: #778ca3
+}
+
+.design10 td {
+    padding: 10px;
+    border-bottom: solid 1px #778ca3;
+}
+
+.loc2 {
+    position: relative;
+    text-align: right;
+    top: 60px;
 }
